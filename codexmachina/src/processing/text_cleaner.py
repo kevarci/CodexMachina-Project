@@ -1,10 +1,20 @@
 import re
 
 def clean_text(text):
-    #eliminar salto de lineas multiples 
-    text = re.sub(r'\n{2,}', '\n\n', text)
-    #Eliminar caracteres especiales no imprimibles
-    text_text.encode('ascii', 'ignore').decode()
-    #Eliminar espacios en blanco adicionales
-    text = re.sub(r'\s+', ' ', text).strip()
-    return text.strip()
+    """
+    Limpia el texto eliminando caracteres no ASCII y realizando otras operaciones
+    de limpieza necesarias.
+    
+    Args:
+        text (str): El texto a limpiar
+        
+    Returns:
+        str: El texto limpio
+    """
+    # Corregido: text_text → text
+    cleaned_text = text.encode('ascii', 'ignore').decode()
+    
+    # Eliminar espacios en blanco extras
+    cleaned_text = ' '.join(cleaned_text.split())
+    
+    return cleaned_text
